@@ -29,7 +29,7 @@ class ETATool:
     start_time = time.time()
     while self.to_run:
       if time.time() - self.last_print_time > self.print_freq:
-        print('Pushing... ETA: {}'.format(self.get_eta(estimated_time - (time.time() - start_time))))
+        print('Pushing, ETA: {}'.format(self.get_eta(estimated_time - (time.time() - start_time))))
         self.last_print_time = time.time()
         time.sleep(self.print_freq / 2.0)
       if time.time() - start_time > estimated_time:
