@@ -29,13 +29,17 @@ class opReleaser:
 
   def create_release(self):
     # Checkout release branch
-    self.run('git checkout -f {}'.format(self.release_branch))
+    r = self.run('git checkout {}'.format(self.release_branch))
+    if any([True if r in i else False for i in ['Switched to branch', 'Already on']]):
+      raise Exception('Error checking out release branch!')
 
     # Delete old target branch if it exists
     self.attempt_delete()
 
     # Checkout a new orphan branch
-    self.run('git checkout --orphan {}'.format(self.target_branch))
+    r = self.run('git checkout --orphan {}'.format(self.target_branch))
+    if 'Switched to a new branch' not in r:
+      raise Exception('Error switching to target branch!')
 
     # Add all files in release branch to new target branch
     self.message('Adding and committing all files to {} branch...'.format(self.target_branch))
@@ -53,6 +57,9 @@ class opReleaser:
     self.message('Now force pushing to remote (origin/{})...'.format(self.target_branch))
     self.run('git push -f --set-upstream origin {}'.format(self.target_branch))
     self.eta_tool.stop()
+
+    # Check the release branch back out
+    self.run('git checkout {}'.format(self.release_branch))
 
     # Finished
     print('\nFinished! Squashed {} branch to 1 commit and force pushed to {} branch!'.format(self.release_branch, self.target_branch))
