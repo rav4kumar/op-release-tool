@@ -3,6 +3,8 @@ A tool for openpilot that creates squashed release branches for quick cloning.
 
 In `op_releaser.py` simply change the following class variables to your liking and run the file!
 
+Note: The `self.target_branch` will be overwritten every time you run the tool.
+
 ```python
 class opReleaser:
   def __init__(self):
