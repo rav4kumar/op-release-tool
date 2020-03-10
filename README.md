@@ -1,5 +1,5 @@
 # op-release-tool
-A tool that creates squashed release branches for quick cloning
+A tool for openpilot that creates squashed release branches for quick cloning.
 
 In `op_releaser.py` simply change the following class variables to your liking and run the file!
 
