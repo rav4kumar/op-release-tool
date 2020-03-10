@@ -27,14 +27,12 @@ class ETATool:
 
   def eta_thread(self, estimated_time):
     start_time = time.time()
-    while True:
-      if not self.to_run:
-        return
+    while self.to_run:
       if time.time() - self.last_print_time > self.print_freq:
         print('Pushing, ETA: {}'.format(self.get_eta(estimated_time - (time.time() - start_time))))
         self.last_print_time = time.time()
         time.sleep(self.print_freq / 2.0)
-      if time.time() - start_time > estimated_time:
+      if time.time() - start_time > estimated_time and self.to_run:
         print('Any second now...')
         return
 
