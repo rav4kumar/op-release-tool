@@ -10,4 +10,4 @@ self.target_branch: Replace with the name of the target branch you want a squash
 self.commit_message: The commit message to be pushed to your target_branch. You can either use the included date function or remove it
 ```
 
-[An example release target branch.](https://github.com/ShaneSmiskol/openpilot/tree/stock_additions-release)
+[An example release target branch.](https://github.com/ShaneSmiskol/openpilot/commits/stock_additions-release)
