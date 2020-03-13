@@ -13,6 +13,8 @@ class opReleaser:
       self.release_branch: Replace with the name of your most stable branch
       self.target_branch: Replace with the name of the target branch you want a squashed version of your release branch on
       self.commit_message: The commit message to be pushed to your target_branch. You can either use the included date function or remove it
+
+      When you run this file, it will checkout your release branch immediately, make sure it's up to date with your remote by pulling before running
     """
 
     self.op_base_dir = 'C:/Git/op-smiskol/openpilot'
