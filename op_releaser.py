@@ -84,7 +84,7 @@ class opReleaser:
     return today.strftime('%h %d, %Y').replace(' 0', ' ')
 
   def message(self, msg):
-    print('[{}/{}]: {}'.format(self.msg_count + 1, self.total_steps, msg), flush=>True)
+    print('[{}/{}]: {}'.format(self.msg_count + 1, self.total_steps, msg), flush=True)
     self.msg_count += 1
 
 opReleaser()
