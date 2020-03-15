@@ -17,10 +17,10 @@ class opReleaser:
       When you run this file, it will checkout your release branch immediately, make sure it's up to date with your remote by pulling before running
     """
 
-    self.op_base_dir = 'D:/op/rav4kumar/openpilot'
+    self.op_base_dir = 'D:/op/openpilot'
     self.release_branch = '073-clean'
-    self.target_branch = 'r4_test'
-    self.commit_message = 'r4 b0.1 (0.7.3) {} Release'.format(self.get_cur_date())
+    self.target_branch = 'Release4'
+    self.commit_message = 'Release 4, (0.7.3) {} Release'.format(self.get_cur_date())
 
     self.eta_tool = ETATool(self.op_base_dir, up_speed)
 
