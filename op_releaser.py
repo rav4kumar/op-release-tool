@@ -17,10 +17,10 @@ class opReleaser:
       When you run this file, it will checkout your release branch immediately, make sure it's up to date with your remote by pulling before running
     """
 
-    self.op_base_dir = 'C:/Git/op-smiskol/openpilot'
-    self.release_branch = 'stock_additions'
-    self.target_branch = 'stock_additions-release'
-    self.commit_message = 'Stock Additions 0.2 (0.7.1) {} Release'.format(self.get_cur_date())
+    self.op_base_dir = 'D:/op/rav4kumar/openpilot'
+    self.release_branch = '073-clean'
+    self.target_branch = 'r4_test'
+    self.commit_message = 'r4 b0.1 (0.7.3) {} Release'.format(self.get_cur_date())
 
     self.eta_tool = ETATool(self.op_base_dir, up_speed)
 
@@ -84,8 +84,7 @@ class opReleaser:
     return today.strftime('%h %d, %Y').replace(' 0', ' ')
 
   def message(self, msg):
-    print('[{}/{}]: {}'.format(self.msg_count + 1, self.total_steps, msg), flush=True)
+    print('[{}/{}]: {}'.format(self.msg_count + 1, self.total_steps, msg), flush=>True)
     self.msg_count += 1
-
 
 opReleaser()
